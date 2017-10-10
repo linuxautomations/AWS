@@ -28,7 +28,7 @@ else
 	success "Installed Python Installer Successfully"
 fi
 
-pip install awscli &>/dev/null
+pip install awscli csvkit &>/dev/null
 if [ $? -eq 0 ]; then 
 	success "Install AWSCLI Successfully"
 else
