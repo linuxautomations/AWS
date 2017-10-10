@@ -181,7 +181,7 @@ REPORT() {
 		head_u "\nChecking $R$SERVICE$N :"
 		case $SERVICE in
 			EC2)
-			if [ -z "ACTION" ]; then 
+			if [ -z "$ACTION" ]; then 
 				for REGION in ${REGIONS[*]}; do
 					Check_EC2 "$REGION"
 				done
@@ -196,7 +196,7 @@ REPORT() {
 				Check_S3 
 			;;
 			ELASTIC_BEANSTALK) 
-			if [ -z "ACTION" ]; then 
+			if [ -z "$ACTION" ]; then 
 				for REGION in ${REGIONS[*]}; do 
 					Check_EB "$REGION"
 				done
@@ -208,7 +208,7 @@ REPORT() {
 			fi
 			;;
 			RDS)
-			if [ -z "ACTION" ]; then
+			if [ -z "$ACTION" ]; then
 				for REGION in ${REGIONS[*]}; do 
 					Check_RDS "$REGION"
 				done
@@ -220,7 +220,7 @@ REPORT() {
 			fi
 			;;
 			CODECOMMIT)
-			if [ -z "ACTION" ]; then
+			if [ -z "$ACTION" ]; then
 				for REGION in ${REGIONS[*]}; do 
 					Check_CC "$REGION"
 				done
@@ -232,7 +232,7 @@ REPORT() {
 			fi
 			;;
 			CODEBUILD)
-			if [ -z "ACTION" ]; then
+			if [ -z "$ACTION" ]; then
 				for REGION in ${REGIONS[*]}; do 
 					Check_CB "$REGION"
 				done
@@ -244,7 +244,7 @@ REPORT() {
 			fi
 			;;
 			CODEDEPLOY)
-			if [ -z "ACTION" ]; then
+			if [ -z "$ACTION" ]; then
 				for REGION in ${REGIONS[*]}; do 
 					Check_CD "$REGION"
 				done
@@ -256,7 +256,7 @@ REPORT() {
 			fi
 			;;
 			CODE_PIPELINE) 
-			if [ -z "ACTION" ]; then
+			if [ -z "$ACTION" ]; then
 				for REGION in ${REGIONS[*]}; do 
 					Check_CP "$REGION"
 				done
@@ -268,7 +268,7 @@ REPORT() {
 			fi
 			;;
 			CLOUDWATCH)
-			if [ -z "ACTION" ]; then
+			if [ -z "$ACTION" ]; then
 				for REGION in ${REGIONS[*]}; do 
 					Check_CW "$REGION"
 				done
@@ -280,7 +280,7 @@ REPORT() {
 			fi
 			;;
 			SNS)
-			if [ -z "ACTION" ]; then
+			if [ -z "$ACTION" ]; then
 				for REGION in ${REGIONS[*]}; do 
 					Check_SNS "$REGION"
 				done
