@@ -42,12 +42,16 @@ Check_EC2() {
 	fi
 	count=$(aws ec2 describe-instances --region $1 --output table | grep InstanceId | wc -l)
 	count1=$(aws ec2 describe-volumes --region $1 --output table  | grep us-east-2 | wc -l)
-	echo "$1,$count+$count1" >>$FILE
+	if [ $count -gt 0 -o $count1 -gt 0 ]; then 
+		echo -e "\e[31m$1,$count+$count1\e[0m" >>$FILE
+	else
+		echo "$1,$count+$count1" >>$FILE
+	fi
 }
 
 Check_S3() {
 	count=$(aws s3 ls | wc -l)
-	info "\t\t Number of S3 Buckets = $count"
+	info "\t\t Number of S3 Buckets = \e[31m $count"
 }
 
 Check_EB() {
