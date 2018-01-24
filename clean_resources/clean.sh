@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 
 # Author : raghuk.vit@gmail.com , harsha2006@gmail.com
@@ -188,7 +188,6 @@ REPORT() {
 			if [ -z "$ACTION" ]; then 
 				for REGION in ${REGIONS[*]}; do
 					Check_EC2 "$REGION"
-					tput sgr0
 				done
 				PRINT
 			else 
@@ -196,6 +195,7 @@ REPORT() {
 					Check_EC2 "$REGION"
 				done
 			fi
+			exit
 			;;
 			S3)
 				Check_S3 
