@@ -188,6 +188,7 @@ REPORT() {
 			if [ -z "$ACTION" ]; then 
 				for REGION in ${REGIONS[*]}; do
 					Check_EC2 "$REGION"
+					tput sgr0
 				done
 				PRINT
 			else 
