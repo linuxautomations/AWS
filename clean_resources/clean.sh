@@ -195,7 +195,6 @@ REPORT() {
 					Check_EC2 "$REGION"
 				done
 			fi
-			exit
 			;;
 			S3)
 				Check_S3 
